@@ -1,0 +1,11 @@
+framework module TaboolaSDK {
+    umbrella header "TaboolaView.h"
+    module * { export * }
+    
+    link framework "Foundation"
+    link framework "UIKit"
+    link framework "WebKit"
+    link framework "SafariServices"
+    link framework "AdSupport"
+    link framework "CoreLocation"
+}
