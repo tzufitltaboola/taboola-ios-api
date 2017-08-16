@@ -33,20 +33,7 @@
     [self fetchRecommendation];
 }
 
-- (void)checkForDuplicates {
-    
-    for (int i = 0; i <  self.itemsArray.count; i++) {
-        TBItem * item1 = self.itemsArray[i];
-        for (int j = i + 1; j < self.itemsArray.count; j++) {
-            TBItem * item2 = self.itemsArray[j];
-            if ([[item1 valueForKeyPath:@"model.name"] isEqualToString:[item2 valueForKeyPath:@"model.name"]]) {
-                NSLog(@"DUPLICATES = YES");
-                return;
-            }
-        }
-    }
-    NSLog(@"DUPLICATES = NO");
-}
+
 
 - (void)fetchRecommendation {
     self.recomendationRequest = [TBRecommendationRequest new];
@@ -55,6 +42,7 @@
     self.recomendationRequest.sourceUrl = @"http://www.example.com";
     
     TBPlacementRequest *parameters = [TBPlacementRequest new];
+    [parameters setThumbnailSize:CGSizeMake(400,300)];
     parameters.name = @"article";
     parameters.recCount = 2;
     
@@ -65,7 +53,6 @@
         self.placement = placement;
         _itemsArray = [placement.listOfItems mutableCopy];
         [self.tableView reloadData];
-        [self checkForDuplicates];
     } onFailure:^(NSError *error) {
         
     }];
@@ -80,7 +67,6 @@
         self.placement = placement;
         [_itemsArray addObjectsFromArray:placement.listOfItems];
         [self.tableView reloadData];
-        [self checkForDuplicates];
     } onFailure:^(NSError *error) {
         
     }];
@@ -103,7 +89,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TBPlacementTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"placementCell" forIndexPath:indexPath];
-    TBItem *item = _itemsArray[(NSUInteger)indexPath.row / 3];
+    TBItem *item = _itemsArray[(NSUInteger)indexPath.row];
     [item initThumbnailView:cell.tbImageView];
     [item initTitleView:cell.titleView];
     [item initBrandingView:cell.brandingView];
