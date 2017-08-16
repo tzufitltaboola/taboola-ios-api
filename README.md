@@ -41,16 +41,19 @@ $ gem install cocoapods
 ##### Podfile
 
 To integrate Taboola into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
 * Objective-C
-```ruby
-pod 'TaboolaSDK'
-```
+
+   ```
+   pod 'TaboolaSDK'
+   ```
 
 * Swift
-```ruby
-use_frameworks!
-pod 'TaboolaSDK'
-```
+
+   ```
+   use_frameworks!
+   pod 'TaboolaSDK'
+   ```
 
 Then, run the following command:
 
@@ -70,58 +73,50 @@ Beofre loading Taboola recommendations, apps should initialize TaboolaApi. Add t
 
 Make the recommendations requests in your view controller, right before you show the Taboola recommendations. Do this as close as possible to when the recommendations are going to be displayed, avoid getting recommendations for screens which the app user might not view.
 
-*** TODO FROM HERE ***
+
+
+Create A `TBPlacementRequest` for each placement (You can do this in your `ViewController`code)
+
+```java
+TBPlacementRequest *placementReq = [TBPlacementRequest new];
+placementReq.name = @"below-article";  //replace this with your actual placement name
+placementReq.recCount = 4;  //replace this with the actual number of items required in your placement
+   
+[placementReq.recCount setThumbnailSize: CGSizeMake(10,10)] //Optionally, set an explicit required thumbnail size to get from Taboola server (to optimize bandwidth)   
+```
+Create A `TBRecommendationsRequest` and add all of the previously created `TBPlacementRequest` objects to it
 
 ```objc
 TBRecommendationRequest *recomendationRequest = [TBRecommendationRequest new];
 recomendationRequest.sourceType = TBSourceTypeText; //replace this with your page actual source type
 recomendationRequest.sourceId = @"my-source-id";  //replace this with your page actual source id
 recomendationRequest.sourceUrl = @"http://www.example.com";  //replace this with your page actual source URL
-```
 
-Create A `TBPlacementRequest` for each placement (You can do this in your `Activity` or `Fragment` code)
-
-```java
-   String placementName = "article";
-   int recCount = 5; //  how many recommendations should be returned
-   
-   TBPlacementRequest placementRequest = new TBPlacementRequest(placementName, recCount)
-           .setThumbnailSize(400, 300) // ThumbnailSize is optional
-           .setTargetType("mix"); // TargetType is optional
-```
-Create A `TBRecommendationsRequest` and add all of the previously created `TBPlacementRequest` objects to it
-
-```java
-   String pageUrl = "http://example.com";
-   String sourceType = "text";
-           
-   TBRecommendationsRequest recommendationsRequest =
-           new TBRecommendationsRequest(pageUrl, sourceType)
-                   .setUserReferrer("<UserReferrer>") // optional
-                   .setUserUnifiedId("<UnifiedId>") // optional
-                   .addPlacementRequest(placementRequest)
-                   .addPlacementRequest(placementRequest2)
-                   .addPlacementRequest(placementRequest3);
+// Add maximum of 12 placement requests per recommendation request
+[recomendationRequest addPlacementRequest:placementReq];
 ```
 
 (Maximum 12 `TBPlacementRequest` per one `TBRecommendationsRequest`) 
 
 ### 1.5. Fetch Taboola recommendations
-```java
-   TaboolaApi.getInstance().fetchRecommendations(recommendationsRequest, new TBRecommendationRequestCallback() {
-       @Override
-       public void onRecommendationsFetched(TBRecommendationsResponse response) {
-           // map where a Key is the Placements name (you can store it as a member variable for convenience)
-           Map<String, TBPlacement> placementsMap = response.getPlacementsMap();
-       }
-                           
-       @Override
-       public void onRecommendationsFailed(Throwable throwable) {
-           // todo handle error
-           Toast.makeText(MainActivity.this, "Failed: " + throwable.getMessage(),
-                   Toast.LENGTH_LONG).show();
-       }
-   });
+Execute the `fetchRecommendations` method of the singleton TaboolaApi object with your `TBRecommendationsRequest` object. provide callback methods for `onSuccess` and `onFailure` events.
+
+The code in the `onSuccess` callback should handle adding the items onto the view controller.
+
+```
+[[TaboolaApi sharedInstance] fetchRecommendations:recomendationRequest onSuccess:^(TBRecommendationResponse *response) {
+
+		// Iterate over the placements from the response. In this specific example we only have a single placement
+        TBPlacement *placement = response.placements.firstObject;
+        
+        //Get the list of items from each placments and add them to your view controller
+        [self yourOwnMethodToAddTaboolaItemsToView withListOfItems:[placement.listOfItems mutableCopy]];
+        
+    } onFailure:^(NSError *error) {
+    	 // Handle errors here
+        NSLog(@"Something went wrong");
+    }];
+
 ```
 
 ### 1.6. Displaying Taboola recommendations
