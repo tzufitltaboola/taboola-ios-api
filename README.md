@@ -1,4 +1,4 @@
-# Taboola Native iOS SDK (TaboolaApi)
+# Taboola API iOS SDK (TaboolaApi)
 ![Platform](https://img.shields.io/badge/Platform-iOS-green.svg)
 [![Version](https://img.shields.io/cocoapods/v/TaboolaSDK.svg?label=Version)](https://github.com/taboola/taboola-ios-api)
 [![License](https://img.shields.io/badge/License%20-Taboola%20SDK%20License-blue.svg)](https://github.com/taboola/taboola-ios-api/blob/master/LICENSE)
