@@ -20,7 +20,7 @@ Requests recommendation items.
 #### **Parameters:**
 * `recommendationsRequest` — `TBRecommendationRequest` with at least one `TBPlacementRequest`
 * `onSuccess` — success callback block
-* `onFailure` —  failure callback block 
+* `onFailure` —  failure callback block
 
 ### `- (void)getNextBatchForPlacement:(TBPlacement *)placement itemsCount:(NSInteger)count onSuccess:(TBRecommendationRequestSuccessCallback)onSuccess onFailure:(TBRecommendationRequestFailureCallback)onFailure`
 Used for implementing pagination or infinite scroll (load more items as the user scrolls down).
@@ -30,7 +30,7 @@ The method gets the next batch of recommendation items for a specified placement
 * `placement` — placement to request next recommendation items for
 * `count` — number of items
 * `onSuccess` — success callback block
-* `onFailure` —  failure callback block 
+* `onFailure` —  failure callback block
 
 ### `- (void)handleAttributionClick`
 Shows a standard popup with attribution, ad-choices and opt-out data.
@@ -43,13 +43,13 @@ To avoid accidental user clicks, the TB views will ignore clicks that were done 
 **DON’T CHANGE THIS VALUE** without consulting your Taboola account manager.
 
 #### **Parameters:**
-* `ignorePeriod ` — time in seconds
+* `ignorePeriod` — time in seconds
 
 ### `- (void)setOnClickIgnorePeriod:(NSTimeInterval) ignorePeriod`
 To avoid accidental user clicks, the TB views will ignore clicks that were done immediately after the view became visible.
 
 ### `id<TaboolaApiClickDelegate> clickDelegate`
-TaboolaApi delegate is used to intercept recommendation clicks and block default click handling for organic items. 
+TaboolaApi delegate is used to intercept recommendation clicks and block default click handling for organic items.
 
 ### `NSString *apiKey`
 **Read Only**
@@ -62,15 +62,14 @@ Publisher ID used by the SDK.
 Delegate method is called on every touch on the Placement.
 
 #### **Parameters:**
-* `placementName ` — placement name
-* `itemId ` —  item identifier
+* `placementName` — placement name
+* `itemId` —  item identifier
 * `clickUrl` — item URL
 * `organic` — indicates whether the item clicked was an organic content recommendation or not. Best practice would be to suppress the default behavior for organic items, and instead open the relevant screen in your app which shows that piece of content.
 
 #### **Returns:**
 * `BOOL` — Return `false` to abort the default behaviour, the app should display the recommendation content on its own (for example, using an in-app browser). (Aborts only for organic items!)
 Return `true` - this will allow the app to implement a click-through and continue to the default behaviour.
-
 
 # TBRecommendationRequest
 ### `+ (instancetype)new`
@@ -79,16 +78,17 @@ Initializes a Recommendation request. Parameters and Placements must be added to
 ### `- (void)setPageUrl:(NSString*)url`
 #### **Parameters:**
 * `url` — a fully qualified (http:// or https://) publicly accessible URL that contains the content and/or meta data for the current source item (the piece of content the recommendations are going to be placed next to).
+> **IMPORTANT**: `setPageUrl:` overwrites existing `sourceId` value. In order to set `pageUrl` **AND** `sourceId` you must call `setPageUrl:` **prior** to `setSourceId:`.  
 
-### `- (void)setSourceId:(NSString *)sourceId `
+### `- (void)setSourceId:(NSString *)sourceId`
 #### **Parameters:**
 * `sourceType` — the type of the content the recommendations will be placed next to.
 
-### `- (void)setUserReferrer:(NSString*) referrer `
+### `- (void)setUserReferrer:(NSString*) referrer`
 #### **Parameters:**
-* `referrer ` — the referrer (HTTP header) from the request that led to the current page.
+* `referrer` — the referrer (HTTP header) from the request that led to the current page.
 
-### `- (void)setUnidiedId:(NSString*) unifiedId `
+### `- (void)setUnidiedId:(NSString*) unifiedId`
 #### **Parameters:**
 * `unifiedId` — an opaque, anonymized and unique identifier of the user in the publisher’s eco-system. This identifier should be identical cross application and device (e.g. hashed e-mail, or login).
 
@@ -105,14 +105,14 @@ typedef enum {
 } TBSourceType;
 ```
 
-###  `NSString *targetType`
+### `NSString *targetType`
 Type of recommended organic content to return.
 **Note**: this parameter does not influence the type of sponsored content returned – the mix of the sponsored content types is currently determined by a server side configuration.
-###  `NSString *targetType`
+### `NSString *targetType`
 Type of recommended organic content to return.
 **Note**: this parameter does not influence the type of sponsored content returned – the mix of the sponsored content types is currently determined by a server side configuration.
 
-###  `NSDictionary *parameters`
+### `NSDictionary *parameters`
 Recommendation request parameters.
 
 ### `- (void)addPlacementRequest:(TBPlacementRequest *)parameters error:(NSError **)error`
@@ -126,7 +126,7 @@ Adds a `TBPlacementRequest` to the `TBRecommendationRequest`. Up to 12 `TBPlacem
 Adds a `TBPlacementRequest` to the `TBRecommendationRequest`. Up to 12 `TBPlacementRequest` per `TBRecommendationRequest` are allowed. All placements must have unique names.
 
 #### **Parameters:**
-* `placementName ` — placement name for the `TBRecommendationRequest`
+* `placementName` — placement name for the `TBRecommendationRequest`
 * `itemsCount` — number of items in the Placement
 
 # TBPlacementRequest
@@ -190,7 +190,6 @@ Returns a TBTextView which contains the title of the recommended item.
 If branding text is available for the current recommendation item, returns a TBBrandingLabel which contains the branding text for the item. In case branding text is not available returns nil.
 #### **Returns:**
 * a TBBrandingLabel object configured with branding text.
- 
 ### `- (void)initTitleView:(TBTitleLabel *)titleLabel`
 Initializes a title label (TBTitleLabel instance) with the receiving TBItem object.
 
@@ -198,7 +197,7 @@ Initializes a title label (TBTitleLabel instance) with the receiving TBItem obje
 * `titleLabel` — TBTitleLabel object to be configured
 
 ### `- (void)initBrandingView:(TBBrandingLabel *)brandingLabel`
-Initializes a branding label (TBBrandingLabel instance) with the receiving TBItem object. 
+Initializes a branding label (TBBrandingLabel instance) with the receiving TBItem object.
 
 #### **Parameters:**
 * `brandingLabel` — TBBrandingLabel object to be configured
@@ -208,7 +207,6 @@ Initializes an TBImageView instance with the receiving TBItem object.
 
 #### **Parameters:**
 * `imageView` — TBImageView object to be configured
- 
 
 # TBImageView
 TBImageView is subclass of UIImageView capable  of loading and displaying thumbnail images. Detects touches.
