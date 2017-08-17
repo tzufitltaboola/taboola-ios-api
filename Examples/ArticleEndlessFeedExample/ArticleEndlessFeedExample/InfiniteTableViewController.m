@@ -102,8 +102,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     TBPlacementTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"placementCell" forIndexPath:indexPath];
-    TBItem *item = _itemsArray[(NSUInteger)indexPath.row / 3];
+    
+    cell.tbImageView.image = nil;
+    TBItem *item = _itemsArray[indexPath.row];
     [item initThumbnailView:cell.tbImageView];
     [item initTitleView:cell.titleView];
     [item initBrandingView:cell.brandingView];
