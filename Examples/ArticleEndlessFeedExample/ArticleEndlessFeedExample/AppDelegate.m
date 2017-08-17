@@ -6,7 +6,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "TaboolaApi.h"
 @interface AppDelegate ()
 
 @end
@@ -16,6 +16,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[TaboolaApi sharedInstance] startWithPublisherID:@"betterbytheminute-app" andApiKey:@"4f1e315900f2cab825a6683d265cef18cc33cd27"];
     return YES;
 }
 

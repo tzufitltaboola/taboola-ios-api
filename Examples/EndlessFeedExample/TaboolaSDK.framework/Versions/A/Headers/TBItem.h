@@ -22,7 +22,7 @@
 
 //create UIViews from storyboard
 - (void)initTitleView:(TBTitleLabel *)titleLabel;
-- (void)initBrandingView:(TBBrandingLabel *)titleLabel;
+- (void)initBrandingView:(TBBrandingLabel *)brandingLabel;
 - (void)initThumbnailView:(TBImageView *)imageView;
 
 @end

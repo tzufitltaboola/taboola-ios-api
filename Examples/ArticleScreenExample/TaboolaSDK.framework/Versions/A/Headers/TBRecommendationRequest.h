@@ -20,12 +20,15 @@ typedef enum {
 @interface TBRecommendationRequest : NSObject
 
 @property (nonatomic) TBSourceType sourceType;
-@property (nonatomic, copy) NSString *sourceUrl;
-@property (nonatomic, copy) NSString *sourceId;
-@property (nonatomic) NSInteger batchCount;
+@property (nonatomic, copy) NSString *targetType;
+
+- (void)setPageUrl:(NSString*)url;
+- (void)setSourceId:(NSString *)sourceId;
+- (void)setUserReferrer:(NSString*) referrer;
+- (void)setUnidiedId:(NSString*) unifiedId;
 
 - (NSDictionary *)parameters;
-- (void)addPlacementRequest:(TBPlacementRequest *)parameters error:(NSError **)error;
+- (void)addPlacementRequest:(TBPlacementRequest *)parameters;
 
 - (instancetype)createNextBatchRequest:(NSString *)placementName itemsCount:(NSUInteger)itemsCount;
 

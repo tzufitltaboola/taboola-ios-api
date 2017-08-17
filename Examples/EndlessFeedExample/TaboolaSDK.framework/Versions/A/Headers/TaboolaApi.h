@@ -13,7 +13,7 @@ typedef void(^TBRecommendationRequestSuccessCallback)(TBRecommendationResponse *
 typedef void(^TBRecommendationRequestFailureCallback)(NSError *error);
 
 @protocol TaboolaApiClickDelegate <NSObject>
-- (BOOL)onItemClick:(NSString *)placemetName withItemId:(NSString *)itemId withClickUrl:(NSString *)clickUrl isOrganic:(BOOL)organic;
+- (BOOL)onItemClick:(NSString *)placementName withItemId:(NSString *)itemId withClickUrl:(NSString *)clickUrl isOrganic:(BOOL)organic;
 @end
 
 @interface TaboolaApi : NSObject
@@ -24,10 +24,19 @@ typedef void(^TBRecommendationRequestFailureCallback)(NSError *error);
 
 
 //call this method in AppDelegate
-- (void)startWithPublisherID:(NSString *)publisherId andApiKey:(NSString *)apiKey;
-- (void)fetchRecommendations:(TBRecommendationRequest *)recommendationsRequest onSuccess:(TBRecommendationRequestSuccessCallback)onSuccess onFailure:(TBRecommendationRequestFailureCallback)onFailure;
-- (void)getNextBatchForPlacement:(TBPlacement *)placement itemsCount:(NSInteger)count onSuccess:(TBRecommendationRequestSuccessCallback)onSuccess onFailure:(TBRecommendationRequestFailureCallback)onFailure;
+- (void)startWithPublisherID:(NSString *)publisherId
+                   andApiKey:(NSString *)apiKey;
+- (void)fetchRecommendations:(TBRecommendationRequest *)recommendationsRequest
+                   onSuccess:(TBRecommendationRequestSuccessCallback)onSuccess
+                   onFailure:(TBRecommendationRequestFailureCallback)onFailure;
+- (void)getNextBatchForPlacement:(TBPlacement *)placement
+                      itemsCount:(NSInteger)count
+                       onSuccess:(TBRecommendationRequestSuccessCallback)onSuccess
+                       onFailure:(TBRecommendationRequestFailureCallback)onFailure;
 + (instancetype) sharedInstance;
+
+- (void)setOnClickIgnorePeriod:(NSTimeInterval) ignorePeriod;
+- (NSTimeInterval)onClickIgnorePeriod;
 
 - (void)handleAttributionClick;
 @end

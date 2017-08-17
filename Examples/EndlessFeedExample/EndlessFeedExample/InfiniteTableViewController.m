@@ -26,8 +26,6 @@
     self.tableView.estimatedRowHeight = 298.0;
     
     self.taboolaApi = [TaboolaApi sharedInstance];
-    [self.taboolaApi startWithPublisherID:@"betterbytheminute-app" andApiKey:@"4f1e315900f2cab825a6683d265cef18cc33cd27"];
-    
     self.taboolaApi.clickDelegate = self;
     
     [self fetchRecommendation];
@@ -51,14 +49,13 @@
 - (void)fetchRecommendation {
     self.recomendationRequest = [TBRecommendationRequest new];
     self.recomendationRequest.sourceType = TBSourceTypeText;
-    self.recomendationRequest.sourceId = @"http://www.example.com";
-    self.recomendationRequest.sourceUrl = @"http://www.example.com";
+    [self.recomendationRequest setPageUrl: @"http://www.example.com"];
     
     TBPlacementRequest *parameters = [TBPlacementRequest new];
     parameters.name = @"article";
     parameters.recCount = 2;
     
-    [self.recomendationRequest addPlacementRequest:parameters error:nil];
+    [self.recomendationRequest addPlacementRequest:parameters];
     
     [self.taboolaApi fetchRecommendations:self.recomendationRequest onSuccess:^(TBRecommendationResponse *response) {
         TBPlacement *placement = response.placements.firstObject;
@@ -103,7 +100,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TBPlacementTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"placementCell" forIndexPath:indexPath];
-    
+    cell.tbImageView.image = nil;
     if (indexPath.row % 3 == 2) {
         TBItem *item = _itemsArray[(NSUInteger)indexPath.row / 3];
         [item initThumbnailView:cell.tbImageView];

@@ -46,14 +46,13 @@
     
     self.recomendationRequest = [TBRecommendationRequest new];
     self.recomendationRequest.sourceType = TBSourceTypeText;
-    self.recomendationRequest.sourceId = @"http://www.example.com";
-    self.recomendationRequest.sourceUrl = @"http://www.example.com";
+    [self.recomendationRequest setPageUrl:@"http://www.example.com"];
     
     TBPlacementRequest *parameters = [TBPlacementRequest new];
     parameters.name = @"article";
     parameters.recCount = 4;
     
-    [self.recomendationRequest addPlacementRequest:parameters error:nil];
+    [self.recomendationRequest addPlacementRequest:parameters];
     
     [self.taboolaApi fetchRecommendations:self.recomendationRequest onSuccess:^(TBRecommendationResponse *response) {
         
