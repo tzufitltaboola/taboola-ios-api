@@ -7,17 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17FB86D948E4ADD68FA9D1CD /* libPods-ArticleEndlessFeedExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B72DB9491FA90756E99CF26B /* libPods-ArticleEndlessFeedExample.a */; };
 		DC33F8E61F3C52930037B568 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC33F8E51F3C52930037B568 /* main.m */; };
 		DC33F8E91F3C52930037B568 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC33F8E81F3C52930037B568 /* AppDelegate.m */; };
 		DC33F8EF1F3C52930037B568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC33F8ED1F3C52930037B568 /* Main.storyboard */; };
 		DC33F8F11F3C52930037B568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC33F8F01F3C52930037B568 /* Assets.xcassets */; };
 		DC33F8F41F3C52930037B568 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC33F8F21F3C52930037B568 /* LaunchScreen.storyboard */; };
-		DC33F8FD1F3C52BF0037B568 /* TaboolaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC33F8FC1F3C52BF0037B568 /* TaboolaSDK.framework */; };
 		DC33F9021F3C57BA0037B568 /* TBPlacementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC33F8FF1F3C57BA0037B568 /* TBPlacementTableViewCell.m */; };
 		DC33F9031F3C57BA0037B568 /* InfiniteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC33F9011F3C57BA0037B568 /* InfiniteTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9BB08E90A858D37A78D3794C /* Pods-ArticleEndlessFeedExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArticleEndlessFeedExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArticleEndlessFeedExample/Pods-ArticleEndlessFeedExample.release.xcconfig"; sourceTree = "<group>"; };
+		B72DB9491FA90756E99CF26B /* libPods-ArticleEndlessFeedExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArticleEndlessFeedExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDCC120B27F397BFA79AE322 /* Pods-ArticleEndlessFeedExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArticleEndlessFeedExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArticleEndlessFeedExample/Pods-ArticleEndlessFeedExample.debug.xcconfig"; sourceTree = "<group>"; };
 		DC33F8E11F3C52930037B568 /* ArticleEndlessFeedExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArticleEndlessFeedExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC33F8E51F3C52930037B568 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DC33F8E71F3C52930037B568 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,7 +29,6 @@
 		DC33F8F01F3C52930037B568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC33F8F31F3C52930037B568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC33F8F51F3C52930037B568 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC33F8FC1F3C52BF0037B568 /* TaboolaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TaboolaSDK.framework; sourceTree = "<group>"; };
 		DC33F8FE1F3C57BA0037B568 /* TBPlacementTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBPlacementTableViewCell.h; sourceTree = "<group>"; };
 		DC33F8FF1F3C57BA0037B568 /* TBPlacementTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBPlacementTableViewCell.m; sourceTree = "<group>"; };
 		DC33F9001F3C57BA0037B568 /* InfiniteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfiniteTableViewController.h; sourceTree = "<group>"; };
@@ -38,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC33F8FD1F3C52BF0037B568 /* TaboolaSDK.framework in Frameworks */,
+				17FB86D948E4ADD68FA9D1CD /* libPods-ArticleEndlessFeedExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +53,7 @@
 				DC33F8E31F3C52930037B568 /* ArticleEndlessFeedExample */,
 				DC33F8E21F3C52930037B568 /* Products */,
 				DC33F8FB1F3C52BF0037B568 /* Frameworks */,
+				F388BFE17468322EE2D0B2CC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,9 +94,18 @@
 		DC33F8FB1F3C52BF0037B568 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DC33F8FC1F3C52BF0037B568 /* TaboolaSDK.framework */,
+				B72DB9491FA90756E99CF26B /* libPods-ArticleEndlessFeedExample.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F388BFE17468322EE2D0B2CC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BDCC120B27F397BFA79AE322 /* Pods-ArticleEndlessFeedExample.debug.xcconfig */,
+				9BB08E90A858D37A78D3794C /* Pods-ArticleEndlessFeedExample.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,9 +115,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC33F8F81F3C52930037B568 /* Build configuration list for PBXNativeTarget "ArticleEndlessFeedExample" */;
 			buildPhases = (
+				40FDC290E0DCCC05A5219888 /* [CP] Check Pods Manifest.lock */,
 				DC33F8DD1F3C52930037B568 /* Sources */,
 				DC33F8DE1F3C52930037B568 /* Frameworks */,
 				DC33F8DF1F3C52930037B568 /* Resources */,
+				78860104BE6384C81F92D9D6 /* [CP] Embed Pods Frameworks */,
+				991234304E35DF5692FBE205 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -162,6 +177,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40FDC290E0DCCC05A5219888 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArticleEndlessFeedExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78860104BE6384C81F92D9D6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArticleEndlessFeedExample/Pods-ArticleEndlessFeedExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		991234304E35DF5692FBE205 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ArticleEndlessFeedExample/Pods-ArticleEndlessFeedExample-resources.sh",
+				"${PODS_ROOT}/TaboolaSDK/TaboolaSDK.framework/Versions/A/TaboolaResources/TaboolaVIewResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArticleEndlessFeedExample/Pods-ArticleEndlessFeedExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DC33F8DD1F3C52930037B568 /* Sources */ = {
@@ -291,17 +360,26 @@
 		};
 		DC33F8F91F3C52930037B568 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDCC120B27F397BFA79AE322 /* Pods-ArticleEndlessFeedExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				DEVELOPMENT_TEAM = QMJ5T4LTHY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/TaboolaSDK.framework/Versions/A/Headers/";
+				HEADER_SEARCH_PATHS = "\"$PODS_CONFIGURATION_BUILD_DIR/ArticleEndlessFeedExample/TaboolaSDK.framework/Headers\"";
 				INFOPLIST_FILE = ArticleEndlessFeedExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Taboola.ArticleEndlessFeedExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -309,17 +387,26 @@
 		};
 		DC33F8FA1F3C52930037B568 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BB08E90A858D37A78D3794C /* Pods-ArticleEndlessFeedExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				DEVELOPMENT_TEAM = QMJ5T4LTHY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/TaboolaSDK.framework/Versions/A/Headers/";
+				HEADER_SEARCH_PATHS = "\"$PODS_CONFIGURATION_BUILD_DIR/ArticleEndlessFeedExample/TaboolaSDK.framework/Headers\"";
 				INFOPLIST_FILE = ArticleEndlessFeedExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = Taboola.ArticleEndlessFeedExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

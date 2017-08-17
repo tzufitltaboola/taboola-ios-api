@@ -6,7 +6,8 @@
 //
 
 #import "AppDelegate.h"
-#import "TaboolaApi.h"
+#import <TaboolaSDK/TaboolaApi.h>
+
 @interface AppDelegate ()
 
 @end
