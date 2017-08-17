@@ -1,6 +1,6 @@
-# Taboola Native SDK Reference
+# Taboola API SDK iOS Reference
 
-> **Note**: if you haven't been specifically instructed by your Taboola account manager to use this section of TaboolaApi, you should probably use [TaboolaView](http://github.com/taboola/taboola-android) which is faster and more simple to integrate.  
+> **Note**: if you haven't been specifically instructed by your Taboola account manager to use this section of TaboolaApi, you should probably use [TaboolaView](http://github.com/taboola/taboola-ios) which is faster and more simple to integrate.  
 
 # TaboolaApi
 ### `+ (instancetype) sharedInstance`
@@ -106,9 +106,11 @@ typedef enum {
 ```
 
 ###  `NSString *targetType`
-Type of recommended organic content to return.**Note**: this parameter does not influence the type of sponsored content returned – the mix of the sponsored content types is currently determined by a server side configuration.
+Type of recommended organic content to return.
+**Note**: this parameter does not influence the type of sponsored content returned – the mix of the sponsored content types is currently determined by a server side configuration.
 ###  `NSString *targetType`
-Type of recommended organic content to return.**Note**: this parameter does not influence the type of sponsored content returned – the mix of the sponsored content types is currently determined by a server side configuration.
+Type of recommended organic content to return.
+**Note**: this parameter does not influence the type of sponsored content returned – the mix of the sponsored content types is currently determined by a server side configuration.
 
 ###  `NSDictionary *parameters`
 Recommendation request parameters.
