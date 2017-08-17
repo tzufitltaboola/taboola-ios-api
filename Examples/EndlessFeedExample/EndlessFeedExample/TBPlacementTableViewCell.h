@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <TaboolaApi.h>
+#import <TaboolaSDK/TaboolaApi.h>
 
 @interface TBPlacementTableViewCell : UITableViewCell
 
