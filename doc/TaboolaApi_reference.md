@@ -45,8 +45,14 @@ To avoid accidental user clicks, the TB views will ignore clicks that were done 
 #### **Parameters:**
 * `ignorePeriod` — time in seconds
 
-### `- (void)setOnClickIgnorePeriod:(NSTimeInterval) ignorePeriod`
-To avoid accidental user clicks, the TB views will ignore clicks that were done immediately after the view became visible.
+### `- (NSTimeInterval)onClickIgnorePeriod`
+#### **Return:**
+* `NSTimeInterval` — Active ignore period.
+
+### `- (void)setExtraPropetries:(NSDictionary *)properties`
+Set additional parameters for TaboolaApi instance.
+#### **Parameters:**
+* `properties` — key-value dictionaries with parameters.
 
 ### `id<TaboolaApiClickDelegate> clickDelegate`
 TaboolaApi delegate is used to intercept recommendation clicks and block default click handling for organic items.

@@ -242,6 +242,59 @@ The `onItemClick` method will be called every time a user clicks a recommendatio
 
 **Best practice would be to suppress the default behavior for organic items, and instead open the relevant screen in your app which shows that content.**
 
+### Ignore Click Period
+`- (void)setOnClickIgnorePeriod:(NSTimeInterval) ignorePeriod`
+To avoid accidental user clicks, the TaboolaView views will ignore clicks that were done immediately after the view became visible.
+**Default value**: 0.5 second
+**DON'T CHANGE THIS VALUE** without consulting your Taboola account manager.
+
+##### **Parameters:**
+* `ignorePeriod` — ignore period in seconds
+
+### 1.9. Intercepting recommendation clicks
+TaboolaApi, by default, will try to open clicks in `SFSafariViewController`.
+On older iOS versions, where `SFSafariViewController` is not supported, the clicks will be opened in an in-app browser window.
+
+TaboolaApi allows app developers to intercept recommendation clicks in order to create a click-through or to override the default way of opening the recommended article. For example, for opening organic items as a deeplink into the relevant app screen instead of showing it as a web content.
+
+In order to intercept clicks, you should implement the `TaboolaApiClickDelegate` and set it in the sdk.
+
+For example, you may choose to implement `TaboolaApiClickDelegate` in your view controller
+
+```
+@interface MyViewController () <TaboolaApiClickDelegate>
+.
+.
+.
+@implementation MyViewController
+.
+.
+.
+#pragma mark - TaboolaApiClickDelegate
+
+- (BOOL)onItemClick:(NSString *)placemetName withItemId:(NSString *)itemId withClickUrl:(NSString *)clickUrl isOrganic:(BOOL)organic {
+
+	 // Write click handling code here
+    return true;
+}
+
+```
+
+Set the delegate correctly on the TaboolaApi SharedInstance:
+
+```   
+[TaboolaApi sharedInstance].clickDelegate = self;
+```
+
+The `onItemClick` method will be called every time a user clicks a recommendation, right before triggering the default behavior. You can block default click handling for organic items by returning `false`.
+
+* Return **`false`** - abort the default behavior, the app should display the recommendation content on its own (for example, using an in-app browser). **NOTICE: Aborts only for organic items!**
+* Return **`true`** - this will allow the app to implement a click-through and continue to the default behaviour.
+
+`isOrganic` indicates whether the item clicked was an organic content recommendation or not.
+
+**Best practice would be to suppress the default behavior for organic items, and instead open the relevant screen in your app which shows that content.**
+
 ## 2. Example App
 This repository includes an example Android app which uses the `TaboolaApi`.
 
