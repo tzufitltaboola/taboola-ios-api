@@ -248,6 +248,7 @@ The `onItemClick` method will be called every time a user clicks a recommendatio
 To avoid accidental user clicks, the TaboolaView views will ignore clicks that were done immediately after the view became visible.
 
 **Default value**: 0.5 second
+
 **DON'T CHANGE THIS VALUE** without consulting your Taboola account manager.
 
 ##### **Parameters:**
