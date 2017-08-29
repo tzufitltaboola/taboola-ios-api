@@ -65,7 +65,7 @@ API key used by the SDK.
 Publisher ID used by the SDK.
 # TaboolaApiClickDelegate
 ### `- (BOOL)onItemClick:(NSString *)placementName withItemId:(NSString *)itemId withClickUrl:(NSString *)clickUrl isOrganic:(BOOL)organic`
-Delegate method is called on every touch on the Placement.
+Delegate method is called on every touch on the Placement. TaboolaApi allows to intercept recommendation clicks and block default click handling for organic items. If you want to block the default behavior in order to open the link to your organic content natively within your app, return false. The return value will be ignored for non-organic items.
 
 #### **Parameters:**
 * `placementName` — placement name
