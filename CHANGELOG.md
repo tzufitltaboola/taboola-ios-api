@@ -1,4 +1,4 @@
-## [1.5.1] - 2017-08-29
+## [1.5.1] - 2017-08-30
 ### Added
 - Click Ignore Period
 - Updated click handling (Overriding default click handling for non-organic items is no longer allowed)
