@@ -1,6 +1,6 @@
 ## [1.6.6] - 2017-11-23
 ### Added
-- TaboolaApi - Add two new elemnt to TBItem:
+- TaboolaApi - Add two new element to TBItem:
 1. TBDescriptionLabel.
 2. extraDataDictionary.
 
