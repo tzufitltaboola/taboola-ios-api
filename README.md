@@ -125,6 +125,11 @@ Each `TBItem` contains a few UI elements:
 1. `TBImageView` - holds the item thumbnail image
 2. `TBTitleLabel` - holds the item title text label
 3. `TBBrandingLabel` - holds the item branding text label (may not exist in all items)
+4. `TBDescriptionLabel` - holds the item description text label (may not exist in all items)
+
+The `TBItem` also contains `NSDictionary` element:
+- `extraDataDictionary` - holds extra data (categories, created, duration, type, views)
+
 
 For each item, all available UI elements should be added to the screen.
 The UI elements can be placed on screen either via interface builder (storyboard) or manually via code.
@@ -137,6 +142,7 @@ Assuming we have these properties defined as outels for interface builder UI ele
 @property (weak, nonatomic) IBOutlet TBImageView *tbImageView;
 @property (weak, nonatomic) IBOutlet TBTitleLabel *titleView;
 @property (weak, nonatomic) IBOutlet TBBrandingLabel *brandingView;
+@property (weak, nonatomic) IBOutlet TBDescriptionLabel *descriptionView;
 
 ```
 In our view controller code, we can initialize the UI items from a `TBItem` like that:
@@ -148,6 +154,7 @@ if (myTBItem != nil) {
 	[myTBItem initThumbnailView:tbImageView];
 	[myTBItem initTitleView:titleView];
 	[myTBItem initBrandingView:brandingView];
+	[myTBItem initDescriptionView:descriptionView];
 }
 ```
 
@@ -164,6 +171,11 @@ if (myTBItem != nil) {
 	TBBrandingLabel *brandingLabel = [myTBItem brandingView]; 
 	if (brandingLabel != nil){
 		[self.view addSubview:brandingLabel];
+	}
+	
+	TBDescriptionLabel *descriptionLabel = [myTBItem descriptionView]; 
+	if (descriptionLabel != nil){
+		[self.view addSubview:descriptionLabel];
 	}
 }
 
